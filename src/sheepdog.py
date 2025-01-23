@@ -277,7 +277,6 @@ test_accs = []
 prec_all, rec_all, f1_all = [], [], []
 test_accs_res = []
 prec_all_res, rec_all_res, f1_all_res = [], [], []
-f1_r_all, f1_f_all, f1_r_all_res, f1_f_all_res = [], [], [], []
 
 
 for iter in range(iterations):
@@ -314,7 +313,7 @@ with open('logs/log_' +  datasetname + '_' + args.model_name + '.' + 'iter' + st
     f.write('All F1.s:{}\n'.format(f1_all))
     f.write('Average acc.: {} \n'.format(sum(test_accs) / iterations))
     f.write('Average Prec / Rec / F1 (macro): {}, {}, {} \n'.format(sum(prec_all) /iterations, sum(rec_all) /iterations, sum(f1_all) / iterations))
-    f.write('Average F1 by class (Real / Fake): {}, {} \n'.format(sum(f1_r_all) / iterations, sum(f1_f_all) / iterations))
+
 
     f.write('\n-------------Adversarial------------\n')
     f.write('All Acc.s:{}\n'.format(test_accs_res))
@@ -323,4 +322,3 @@ with open('logs/log_' +  datasetname + '_' + args.model_name + '.' + 'iter' + st
     f.write('All F1.s:{}\n'.format(f1_all_res))    
     f.write('Average acc.: {} \n'.format(sum(test_accs_res) / iterations))
     f.write('Average Prec / Rec / F1 (macro): {}, {}, {} \n'.format(sum(prec_all_res) /iterations, sum(rec_all_res) /iterations, sum(f1_all_res) / iterations))
-    f.write('Average F1 by class (Real / Fake): {}, {} \n'.format(sum(f1_r_all_res) / iterations, sum(f1_f_all_res) / iterations))
