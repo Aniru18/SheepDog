@@ -1,0 +1,6 @@
+# Ignore specific checkpoint files
+checkpoints/politifact_iter0.pt
+checkpoints/politifact_iter1.pt
+
+# Ignore virtual environment folder
+env/
