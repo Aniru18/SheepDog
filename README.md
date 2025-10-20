@@ -9,13 +9,38 @@ Jiaying Wu, Jiafeng Guo, Bryan Hooi. Fake News in Sheep's Clothing: Robust Fake 
 
 It is commonly perceived that fake news and real news exhibit distinct writing styles, such as the use of sensationalist versus objective language. However, we emphasize that style-related features can also be exploited for style-based attacks. Notably, the advent of powerful Large Language Models (LLMs) has empowered malicious actors to mimic the style of trustworthy news sources, doing so swiftly, cost-effectively, and at scale. Our analysis reveals that LLM-camouflaged fake news content significantly undermines the effectiveness of state-of-the-art text-based detectors (up to 38% decrease in F1 Score), implying a severe vulnerability to stylistic variations. To address this, we introduce SheepDog, a style-robust fake news detector that prioritizes content over style in determining news veracity. SheepDog achieves this resilience through (1) LLM-empowered news reframings that inject style diversity into the training process by customizing articles to match different styles; (2) a style-agnostic training scheme that ensures consistent veracity predictions across style-diverse reframings; and (3) content-focused veracity attributions that distill content-centric guidelines from LLMs for debunking fake news, offering supplementary cues and potential interpretability that assist veracity prediction. Extensive experiments on three real-world benchmarks demonstrate SheepDog's style robustness and adaptability to various backbones.
 
-## Requirements
-```
-python==3.7.0
-numpy==1.22.4
-torch==1.10.0+cu111
-transformers==4.13.0
-```
+# 🧠 RoBERTa Evaluation Script (PolitiFact Dataset)
+
+This repository contains a script to evaluate fine-tuned **RoBERTa models** on adversarial variants of the **PolitiFact** dataset.
+
+The evaluation computes **accuracy, precision, recall, F1-scores** (macro and per-class), and logs the results to both **terminal** and a **log file** for reproducibility.
+
+---
+
+## ⚙️ Environment Setup
+
+This project uses a **Python 3.10.18 (CPython)** environment, preferably managed via **[UV](https://github.com/astral-sh/uv)** (a fast Python package and environment manager).
+
+### Prerequisites
+
+You need **UV** installed to use the commands below efficiently.
+
+### Installation
+
+If you don’t already have Python 3.10.18, you can install and create the environment directly using **UV**:
+
+```bash
+# 1. Install Python 3.10.18 (if necessary)
+uv python install 3.10.18
+
+# 2. Create a virtual environment named 'env'
+uv venv --python 3.10.18 env
+
+# 3. Activate the environment
+# For Windows:
+source env/Scripts/activate
+# For Linux/macOS:
+# source env/bin/activate
 
 ## Data
 Our work is based on the `PolitiFact` and `GossipCop` datasets from the [FakeNewsNet benchmark](https://github.com/KaiDMML/FakeNewsNet), and the `LUN` dataset from [(Rashkin et al., 2017)](https://aclanthology.org/D17-1317.pdf). 

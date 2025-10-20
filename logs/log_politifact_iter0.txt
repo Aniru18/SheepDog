@@ -1,3 +1,0 @@
-==== Evaluation Results ====
-Original Test -> Acc: 0.7889, P: 0.8152, R: 0.7889, F1: 0.7844
-Adversarial Test -> Acc: 0.7333, P: 0.7512, R: 0.7333, F1: 0.7285
