@@ -41,7 +41,6 @@ uv venv --python 3.10.18 env
 source env/Scripts/activate
 # For Linux/macOS:
 # source env/bin/activate
-
 ## Data
 Our work is based on the `PolitiFact` and `GossipCop` datasets from the [FakeNewsNet benchmark](https://github.com/KaiDMML/FakeNewsNet), and the `LUN` dataset from [(Rashkin et al., 2017)](https://aclanthology.org/D17-1317.pdf). 
 
