@@ -9,7 +9,7 @@ Jiaying Wu, Jiafeng Guo, Bryan Hooi. Fake News in Sheep's Clothing: Robust Fake 
 
 It is commonly perceived that fake news and real news exhibit distinct writing styles, such as the use of sensationalist versus objective language. However, we emphasize that style-related features can also be exploited for style-based attacks. Notably, the advent of powerful Large Language Models (LLMs) has empowered malicious actors to mimic the style of trustworthy news sources, doing so swiftly, cost-effectively, and at scale. Our analysis reveals that LLM-camouflaged fake news content significantly undermines the effectiveness of state-of-the-art text-based detectors (up to 38% decrease in F1 Score), implying a severe vulnerability to stylistic variations. To address this, we introduce SheepDog, a style-robust fake news detector that prioritizes content over style in determining news veracity. SheepDog achieves this resilience through (1) LLM-empowered news reframings that inject style diversity into the training process by customizing articles to match different styles; (2) a style-agnostic training scheme that ensures consistent veracity predictions across style-diverse reframings; and (3) content-focused veracity attributions that distill content-centric guidelines from LLMs for debunking fake news, offering supplementary cues and potential interpretability that assist veracity prediction. Extensive experiments on three real-world benchmarks demonstrate SheepDog's style robustness and adaptability to various backbones.
 
-# 🧠 RoBERTa Evaluation Script (PolitiFact Dataset)
+# 🧠 RoBERTa Training and Evaluation Script Guide (PolitiFact Dataset)
 
 This repository contains a script to evaluate fine-tuned **RoBERTa models** on adversarial variants of the **PolitiFact** dataset.
 
@@ -25,22 +25,33 @@ This project uses a **Python 3.10.18 (CPython)** environment, preferably managed
 
 You need **UV** installed to use the commands below efficiently.
 
-### Installation
+### Installation Guide using UV
 
-If you don’t already have Python 3.10.18, you can install and create the environment directly using **UV**:
 
-```bash
-# 1. Install Python 3.10.18 (if necessary)
-uv python install 3.10.18
 
-# 2. Create a virtual environment named 'env'
-uv venv --python 3.10.18 env
+```pip install uv```
 
-# 3. Activate the environment
-# For Windows:
+```uv pip list```
+
+```uv python list```
+
+```uv python install cpython-3.10.18-windows-x86_64-none```
+
+```uv python list```
+
+```uv venv env --python cpython-3.10.18-windows-x86_64-none```
+
+#if you have conda then first deactivate that
+```conda deactivate```
+
+```uv venv env --python cpython-3.10.18-windows-x86_64-none```
+
+
+# Activate the environment
+### For Windows:
 source env/Scripts/activate
-# For Linux/macOS:
-# source env/bin/activate
+### For Linux/macOS:
+source env/bin/activate
 ## Data
 Our work is based on the `PolitiFact` and `GossipCop` datasets from the [FakeNewsNet benchmark](https://github.com/KaiDMML/FakeNewsNet), and the `LUN` dataset from [(Rashkin et al., 2017)](https://aclanthology.org/D17-1317.pdf). 
 
@@ -69,28 +80,20 @@ The `.pkl` files under `data/veracity_attributions/` contain the content-focused
 Start training with the following command:
 
 ```
-sh train.sh
+python src/sheepdog.py
+```
+Start evaluation with the following command:
+
+```
+python src/evaluate.py
 ```
 
 Model checkpoints will be saved under `checkpoints/`, and results will be saved under `logs/`. 
 
 Additionally, under `logs/logs_archive_all4_adv/`, we provide archived experiment logs for SheepDog on both the original test set and adversarial test sets A-D.
 
-
-## Contact
-
-jiayingwu [at] u.nus.edu
-
-## Citation
-
-If you find this repo or our work useful for your research, please consider citing our paper
-
-```
-@inproceedings{wu2024sheepdog,
-author = {Wu, Jiaying and Guo, Jiafeng and Hooi, Bryan},
-title = {Fake News in Sheep's Clothing: Robust Fake News Detection Against LLM-Empowered Style Attacks},
-year = {2024},
-booktitle = {Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
-pages = {3367–3378}
-}
-```
+## Installation Guide for PyTorch with CUDA
+- run nvidia-smi to see the CUDA version of the GPU, in my case it is 12.6
+- PyTorch with CUDA : 12.6  must be installed via index-url
+- Visit pytorch.org to get the correct command for your system configuration.
+- So we will skip torch, torchvision, torchaudio here in requirements.txt you need to install this via terminal using uv pip command if required but mostly it will be installed when you install pythorch with CUDA, using the proper command listed in pytorch.org
