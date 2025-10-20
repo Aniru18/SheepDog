@@ -27,14 +27,33 @@ You need **UV** installed to use the commands below efficiently.
 
 ### Installation
 
-If you don’t already have Python 3.10.18, you can install and create the environment directly using **UV**:
+print(shutil.which("uv"))```
 
-```bash
-# 1. Install Python 3.10.18 (if necessary)
-uv python install 3.10.18
+```pip install uv```
 
-# 2. Create a virtual environment named 'env'
-uv venv --python 3.10.18 env
+```uv init AI_Travel_Planner```
+
+```uv pip list```
+
+```uv python list```
+
+```uv python install ypy-3.10.16-windows-x86_64-none```
+
+```uv python list```
+
+```uv venv env --python cpython-3.10.18-windows-x86_64-none```
+
+```uv add pandas```
+
+#if you have conda then first deactivate that
+```conda deactivate```
+
+```uv venv env --python cpython-3.10.18-windows-x86_64-none```
+
+## use this command from your virtual env
+```C:\Users\sunny\AI_Trip_Planner\env\Scripts\activate.bat```
+
+
 
 # 3. Activate the environment
 # For Windows:
