@@ -15,7 +15,7 @@ This repository contains a script to evaluate fine-tuned **RoBERTa models** on a
 
 The evaluation computes **accuracy, precision, recall, F1-scores** (macro and per-class), and logs the results to both **terminal** and a **log file** for reproducibility.
 
----
+
 
 ## ⚙️ Environment Setup
 
@@ -68,7 +68,7 @@ The `.pkl` files under `data/veracity_attributions/` contain the content-focused
 
 Start training with the following command:
 
-```bash
+```
 sh train.sh
 ```
 
