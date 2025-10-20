@@ -97,3 +97,6 @@ Additionally, under `logs/logs_archive_all4_adv/`, we provide archived experimen
 - PyTorch with CUDA : 12.6  must be installed via index-url
 - Visit pytorch.org to get the correct command for your system configuration.
 - So we will skip torch, torchvision, torchaudio here in requirements.txt you need to install this via terminal using uv pip command if required but mostly it will be installed when you install pythorch with CUDA, using the proper command listed in pytorch.org
+
+## NB
+The training code has been implemented keeping in mind of 4GB GPU memory if you have more the the evaluation metrices like accuracy and F1 score can be increase by 0.1% to 0.2%
