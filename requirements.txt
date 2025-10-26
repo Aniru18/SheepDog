@@ -1,7 +1,9 @@
 # PyTorch with CUDA : 12.6  must be installed via index-url
 # Visit pytorch.org to get the correct command for your system configuration.
 # So we will skip torch, torchvision, torchaudio here in requirements.txt
-transformers==4.30.0
-scikit-learn==1.3.2
-tqdm==4.66.1
-numpy==1.26.0
+# transformers==4.30.0
+# scikit-learn==1.3.2
+# tqdm==4.66.1
+# numpy==1.26.0
+spacy==3.6.1                 # For entity extraction
+wikipedia==1.4.0             # Wikipedia API for Python

@@ -20,7 +20,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ----------------- ARGUMENTS -----------------
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset_name', default='politifact', type=str)
+parser.add_argument('--dataset_name', default='lun', type=str)
 parser.add_argument('--model_name', default='Pretrained-LM', type=str)
 parser.add_argument('--iters', default=10, type=int)
 parser.add_argument('--batch_size', default=1, type=int)  # Reduced for 4GB GPU
